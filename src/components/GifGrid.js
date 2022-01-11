@@ -15,7 +15,7 @@ export const GifGrid = ({category}) => {
     //hacemos la peticion de manera async indicando que debe esperar las respuesta mediante await
     const getGift = async()=> {
 
-        const url = 'https://api.giphy.com/v1/gifs/search?q=Evangelion&limit=10&api_key=bu4fgAKUjH0gKucz79CR1tV0GWDusAn8';
+        const url = 'https://api.giphy.com/v1/gifs/search?q=Evangelion&limit=8&api_key=bu4fgAKUjH0gKucz79CR1tV0GWDusAn8';
         const resp = await fetch(url);
         const {data} = await resp.json();
 
@@ -35,16 +35,18 @@ export const GifGrid = ({category}) => {
 
 
     return (
-        <div>
+        <>
             {/* imprimimos en pantalla el nombre de la categoria */}
             <h3>{category}</h3>
-                {/* Recorremos el arreglo que obtenemos como resultado extrayendo los valores y pasándolos como props del componente  */}
-                {images.map((img)=> (
-                    <GifGridItem 
-                        key={img.id} 
-                        {...img} 
-                    />
-                ))}
-        </div>
+            <div className='card-grid'>
+                    {/* Recorremos el arreglo que obtenemos como resultado extrayendo los valores y pasándolos como props del componente  */}
+                    {images.map((img)=> (
+                        <GifGridItem 
+                            key={img.id} 
+                            {...img} 
+                        />
+                    ))}
+            </div>
+        </>
     )
 }

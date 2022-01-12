@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { getGift } from '../helpers/getGifs';
 import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({category}) => {
@@ -8,30 +9,11 @@ export const GifGrid = ({category}) => {
 
     //obtenemos el resultado de la petición una unica vez al ser cargada la app
     useEffect(()=>{
-        getGift();
+        getGift(category)
+        .then(setImages);
+    }, [category])
 
-    },[])
-
-    //hacemos la peticion de manera async indicando que debe esperar las respuesta mediante await
-    const getGift = async()=> {
-
-        const url = 'https://api.giphy.com/v1/gifs/search?q=Evangelion&limit=8&api_key=bu4fgAKUjH0gKucz79CR1tV0GWDusAn8';
-        const resp = await fetch(url);
-        const {data} = await resp.json();
-
-        //convertimos la respuesta en un objeto reducido con solo los datos que necesitamos
-        const gifs = data.map(img => {
-            return {
-                id: img.id,
-                title: img.title,
-                url: img.images?.downsized_medium.url
-            }
-        })
-
-        //imprimimos en consola el resultado y lo guardamos en estado local
-        // console.log(gifs);
-        setImages(gifs);
-    }   
+    
 
 
     return (

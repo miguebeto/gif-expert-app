@@ -17,7 +17,7 @@ export const AddCategory = ({setcategories}) => {
 
         if(inputValue.trim().length > 2){
         //agrega los datos del input como nuevo elemento del arreglo
-         setcategories(categories=> [...categories, inputValue]);
+         setcategories(categories=> [inputValue, ...categories]);
          //vaciamos el inout luego de agregal el valor al arreglo
          setInputValue('');
         }

@@ -19,7 +19,7 @@ export const GifExpertApp = () => {
 
     return (
         <>
-            <h2>GifExpertApp</h2>
+            <h2 className={'animate__animated animate__flash'}>GifExpertApp</h2>
             {/* Mandamos la referencia de la funcion seteadora via props */}
             <AddCategory setcategories={setcategories} />
             <hr/>

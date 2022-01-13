@@ -14,13 +14,10 @@ export const useFetchGifs = ( category ) => {
         //Ejecutamos la promesa para traer la información de la petición y guardarla en el estado
         getGifs( category )
         .then(imgs =>{
-            //Se mostraran las imagenes luego de 3 segundos
-            setTimeout(()=>{      
-                setState({
-                    data: imgs,
-                    loading: false
-                })
-            },3000)
+            setState({
+                data: imgs,
+                loading: false
+            })
         })
     },[ category ])
 

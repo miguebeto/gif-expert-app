@@ -12,7 +12,7 @@ export const GifGrid = ({ category }) => {
             {/* imprimimos en pantalla el nombre de la categoria */}
             <h3>{ category }</h3>
             {/* Mostramos cargando cuando el valor de la propiedad loading es true y data cargada cuando pasa a false luego de ejecutarse el setTimeout  */}
-            { loading && <p>loading...</p> }
+            { loading && <p className={'animate__animated animate__flash'}>loading...</p> }
             <div className='card-grid'>
                     {/* Recorremos el arreglo que obtenemos como resultado extrayendo los valores y pasándolos como props del componente  */}
                     {images.map((img)=> (

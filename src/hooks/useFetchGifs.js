@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getGifs } from '../helpers/getGifs';
 
 //Usamos nuestro custom hook al igual que como usamos un componente funcional, agregamos el useState y retornamos lo que que será usado en otros componentes.

@@ -1,5 +1,5 @@
 //hacemos la peticion de manera async indicando que debe esperar las respuesta mediante await
-export const getGift = async(category)=> {
+export const getGifs = async(category)=> {
 
     const url = `https://api.giphy.com/v1/gifs/search?q=${ encodeURI( category ) }&limit=8&api_key=bu4fgAKUjH0gKucz79CR1tV0GWDusAn8`;
     const resp = await fetch(url);
